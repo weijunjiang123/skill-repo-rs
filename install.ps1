@@ -7,13 +7,8 @@ $installDir = "$env:USERPROFILE\.local\bin"
 
 Write-Host "检测到平台: $target"
 
-# 获取最新版本
-$release = Invoke-RestMethod "https://api.github.com/repos/$repo/releases/latest"
-$tag = $release.tag_name
-Write-Host "最新版本: $tag"
-
-# 下载
-$url = "https://github.com/$repo/releases/download/$tag/$binary-$target.zip"
+# 直接用 GitHub latest 重定向下载，无需 API 调用，不受限流影响
+$url = "https://github.com/$repo/releases/latest/download/$binary-$target.zip"
 Write-Host "下载: $url"
 
 $tmp = New-TemporaryFile | ForEach-Object { Remove-Item $_; New-Item -ItemType Directory -Path $_ }

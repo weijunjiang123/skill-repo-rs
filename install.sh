@@ -22,16 +22,8 @@ esac
 
 echo "检测到平台: ${TARGET}"
 
-# 获取最新版本
-LATEST=$(curl -fsSL "https://api.github.com/repos/${REPO}/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
-if [ -z "${LATEST}" ]; then
-  echo "无法获取最新版本，请检查网络连接"
-  exit 1
-fi
-echo "最新版本: ${LATEST}"
-
-# 下载
-URL="https://github.com/${REPO}/releases/download/${LATEST}/${BINARY}-${TARGET}.tar.gz"
+# 直接用 GitHub latest 重定向下载，无需 API 调用，不受限流影响
+URL="https://github.com/${REPO}/releases/latest/download/${BINARY}-${TARGET}.tar.gz"
 echo "下载: ${URL}"
 
 TMP=$(mktemp -d)
