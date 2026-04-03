@@ -41,19 +41,16 @@ jobs:
           targets: ${{ matrix.target }}
 
       - name: Build
-        working-directory: skill-repo-rs
         run: cargo build --release --target ${{ matrix.target }}
 
       - name: Package (Unix)
         if: matrix.archive == 'tar.gz'
-        working-directory: skill-repo-rs
         run: |
           cd target/${{ matrix.target }}/release
           tar czf ../../../skill-repo-${{ matrix.target }}.tar.gz skill-repo${{ matrix.ext }}
 
       - name: Package (Windows)
         if: matrix.archive == 'zip'
-        working-directory: skill-repo-rs
         shell: pwsh
         run: |
           cd target/${{ matrix.target }}/release
@@ -63,7 +60,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: skill-repo-${{ matrix.target }}
-          path: skill-repo-rs/skill-repo-${{ matrix.target }}.*
+          path: skill-repo-${{ matrix.target }}.*
 
   release:
     needs: build
