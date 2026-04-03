@@ -5,7 +5,7 @@
 单二进制，零依赖，跨平台开箱即用的 Code Agent Skill 管理工具
 
 [![Rust](https://img.shields.io/badge/rust-1.70+-orange.svg)](https://www.rust-lang.org/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](../LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)]()
 
 </div>
@@ -43,7 +43,7 @@ sudo mv skill-repo /usr/local/bin/
 ### 方式二：cargo install（需要 Rust 环境）
 
 ```bash
-cargo install --git https://github.com/weijunjiang123/skill-repo.git --path skill-repo-rs
+cargo install --git https://github.com/weijunjiang123/skill-repo-rs.git
 
 skill-repo --help
 ```
@@ -53,20 +53,20 @@ skill-repo --help
 **macOS / Linux:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/weijunjiang123/skill-repo/master/skill-repo-rs/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/weijunjiang123/skill-repo-rs/master/install.sh | bash
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
-irm https://raw.githubusercontent.com/weijunjiang123/skill-repo/master/skill-repo-rs/install.ps1 | iex
+irm https://raw.githubusercontent.com/weijunjiang123/skill-repo-rs/master/install.ps1 | iex
 ```
 
 ### 方式四：从源码构建
 
 ```bash
-git clone https://github.com/weijunjiang123/skill-repo.git
-cd skill-repo/skill-repo-rs
+git clone https://github.com/weijunjiang123/skill-repo-rs.git
+cd skill-repo-rs
 cargo build --release
 # 二进制在 target/release/skill-repo(.exe)
 ```

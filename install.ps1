@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$repo = "weijunjiang123/skill-repo"
+$repo = "weijunjiang123/skill-repo-rs"
 $binary = "skill-repo"
 $target = "x86_64-pc-windows-msvc"
 $installDir = "$env:USERPROFILE\.local\bin"

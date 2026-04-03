@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="weijunjiang123/skill-repo"
+REPO="weijunjiang123/skill-repo-rs"
 BINARY="skill-repo"
 INSTALL_DIR="${HOME}/.local/bin"
 
